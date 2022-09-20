@@ -47,6 +47,9 @@ def d(N):
     print("Original signal: ", a)
     print("FFT: ", aa)
     print("IFFT: ", aaa)
+    for i in range(N):
+        if a[i] != aaa[i]:
+            print("Error at position", i, "expected", a[i], "got", aaa[i])
     plt.figure("Test 1D")
     plt.subplot(3, 1, 1)
     plt.stem(np.arange(N), np.abs(a))
@@ -58,9 +61,6 @@ def d(N):
     plt.stem(np.arange(N), np.abs(aaa))
     plt.title("IFFT")
     plt.show()
-    #for i in range(N):
-    #    if a[i] != aaa[i]:
-    #        print("Error at position", i, "expected", a[i], "got", aaa[i])
 
 def dd(N):
     """Test fft on 2D signal"""
@@ -70,6 +70,10 @@ def dd(N):
     print("Original signal: ", b)
     print("FFT: ", bb)
     print("IFFT: ", bbb)
+    for i in range(N):
+        for j in range(N):
+            if b[i][j] != bbb[i][j]:
+                print("Error at position", i, j, "expected", b[i][j], "got", bbb[i][j])
     plt.figure("Test 2D")
     plt.subplot(3, 1, 1)
     plt.imshow(b)
@@ -80,14 +84,10 @@ def dd(N):
     plt.subplot(3, 1, 3)
     plt.imshow(np.abs(bbb))
     plt.title("IFFT")
-    plt.show()
-    #for i in range(N):
-    #    for j in range(N):
-    #        if b[i][j] != bbb[i][j]:
-    #            print("Error at position", i, j, "expected", b[i][j], "got", bbb[i][j])
+    plt.show()    
 
 if __name__ == '__main__':
-    N = 32
+    N = 4
     d(N)
     dd(N)
 
