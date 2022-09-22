@@ -39,13 +39,17 @@ def ifft2d(X):
     x = np.array([ifft(x[:,i]) for i in range(M)]).T
     return x
 
-def d(N):
+def d(N, deform = False):
     """Test fft on 1D signal"""
     a = np.random.rand(N)
     aa = fft(a)
     aaa = ifft(aa)
     print("Original signal: ", a)
     print("FFT: ", aa)
+    if deform:
+        for i in range(N):
+            if i >= N//2:
+                aa[i] = 0
     print("IFFT: ", aaa)
     for i in range(N):
         if a[i] != aaa[i]:
@@ -62,13 +66,18 @@ def d(N):
     plt.title("IFFT")
     plt.show()
 
-def dd(N):
+def dd(N, deform = False):
     """Test fft on 2D signal"""
     b = np.random.rand(N, N)
     bb = fft2d(b)
     bbb = ifft2d(bb)
     print("Original signal: ", b)
     print("FFT: ", bb)
+    if deform:
+        for i in range(N):
+            for j in range(N):
+                if i+j > N-1:
+                    bb[i, j] = 0
     print("IFFT: ", bbb)
     for i in range(N):
         for j in range(N):
@@ -87,7 +96,9 @@ def dd(N):
     plt.show()    
 
 if __name__ == '__main__':
-    N = 4
+    N = 16
     d(N)
+    d(N, True)
     dd(N)
+    dd(N, True)
 
