@@ -4,3 +4,21 @@ Intitulé du sujet : *Expliquer en détail l'algorithme de la transformation de 
 
 Consignes : 
 - Faire moins de 12 pages de rapport
+
+## Questionnements
+
+### Description
+
+### Comment et pourquoi ça marche ?
+
+#### Explication de l'algorithme
+
+##### Dimension 1
+
+##### Dimension 2
+
+#### Démonstration mathématique
+
+##### Dimension 1
+
+##### Dimension 2
