@@ -54,7 +54,7 @@ def d(N, deform = False):
     for i in range(N):
         if a[i] != aaa[i]:
             print("Error at position", i, "expected", a[i], "got", aaa[i])
-    plt.figure("Test 1D")
+    plt.figure("Test 1D deformed" if deform else "Test 1D")
     plt.subplot(3, 1, 1)
     plt.stem(np.arange(N), np.abs(a))
     plt.title("Original signal")
@@ -72,7 +72,7 @@ def dd(N, deform = False):
     bb = fft2d(b)
     bbb = ifft2d(bb)
     print("Original signal: ", b)
-    print("FFT: ", bb)
+    print("FFT : ", bb)
     if deform:
         for i in range(N):
             for j in range(N):
@@ -84,14 +84,14 @@ def dd(N, deform = False):
             if b[i][j] != bbb[i][j]:
                 print("Error at position", i, j, "expected", b[i][j], "got", bbb[i][j])
     bb[0, 0] = 0
-    plt.figure("Test 2D")
-    plt.subplot(3, 1, 1)
+    plt.figure("Test 2D deformed" if deform else "Test 2D")
+    plt.subplot(1, 3, 1)
     plt.imshow(b)
     plt.title("Original signal")
-    plt.subplot(3, 1, 2)
+    plt.subplot(1, 3, 2)
     plt.imshow(np.abs(bb))
-    plt.title("FFT")
-    plt.subplot(3, 1, 3)
+    plt.title("FFT (without the first pixel)")
+    plt.subplot(1, 3, 3)
     plt.imshow(np.abs(bbb))
     plt.title("IFFT")
     plt.show()
@@ -111,14 +111,14 @@ def img(path, N = -1):
                     ii[j, k] = 0
     print("IFFT: ", iii)
     ii[0, 0] = 0
-    plt.figure("Test gray")
-    plt.subplot(3, 1, 1)
+    plt.figure("Test gray deformed" if N != -1 else "Test gray")
+    plt.subplot(1, 3, 1)
     plt.imshow(i)
     plt.title("Original image")
-    plt.subplot(3, 1, 2)
+    plt.subplot(1, 3, 2)
     plt.imshow(np.abs(ii))
-    plt.title("FFT")
-    plt.subplot(3, 1, 3)
+    plt.title("FFT (without the first pixel)")
+    plt.subplot(1, 3, 3)
     plt.imshow(np.abs(iii))
     plt.title("IFFT")
     plt.show()
@@ -154,19 +154,19 @@ def rgb(path, N = -1):
     rr[0, 0] = 0
     gg[0, 0] = 0
     bb[0, 0] = 0
-    plt.figure("Test rgb")
+    plt.figure("Test rgb deformed" if N != -1 else "Test rgb")
     plt.subplot(3, 3, 1)
     plt.imshow(img)
     plt.title("Original image")
     plt.subplot(3, 3, 4)
     plt.imshow(np.abs(rr))
-    plt.title("FFT (R)")
+    plt.title("FFT (R) (without the first pixel)")
     plt.subplot(3, 3, 5)
     plt.imshow(np.abs(gg))
-    plt.title("FFT (G)")
+    plt.title("FFT (G) (without the first pixel)")
     plt.subplot(3, 3, 6)
     plt.imshow(np.abs(bb))
-    plt.title("FFT (B)")
+    plt.title("FFT (B) (without the first pixel)")
     plt.subplot(3, 3, 7)
     plt.imshow(np.abs(rrr))
     plt.title("IFFT (R)")
