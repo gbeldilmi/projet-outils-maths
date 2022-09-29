@@ -7,12 +7,12 @@ def gr(P, N = -1):
     img = plt.imread(P)
     i = np.dot(img[...,:3], [0.299, 0.587, 0.114])
     ii = fft2d(i)
-    iii = ifft2d(ii)
     if N != -1:
         for j in range(i.shape[0]):
             for k in range(i.shape[1]):
                 if j+k > N:
                     ii[j, k] = 0
+    iii = ifft2d(ii)
     ii[0, 0] = 0
     plt.figure("Test gray deformed" if N != -1 else "Test gray")
     plt.subplot(1, 3, 1)
