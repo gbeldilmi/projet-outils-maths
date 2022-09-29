@@ -58,5 +58,5 @@ def rgb(P, N = -1):
     plt.show()
 
 if __name__ == "__main__":
-    rgb("img/jl.jpg")
-    rgb("img/jl.jpg", 100)
+    rgb("img/jl.png")
+    rgb("img/jl.png", 100)
