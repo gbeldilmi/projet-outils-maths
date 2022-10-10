@@ -7,7 +7,7 @@ Guillaume BELDILMI & Guillaume GAUGUET
 
 - Programmer la transformée de Fourier directe discrète pour une image
 - Programmer la transformée de Fourier rapide discrète 1D
-- Programmer la transformée de Fourier rapide discrète  2D
+- Programmer la transformée de Fourier rapide discrète  2D
 - Faire un rapport (au maximum 12 pages) expliquant les algorithmes utilisés
 - Même travail pour la transformée de Fourier inverse rapide 1D et 2D
 
