@@ -62,6 +62,20 @@ def ifft(X):
             x[k+(N//2)] = p-q
         return x/N
 
+def ft2d(X):
+    """2D Fourier Transform (FT)"""
+    N, M = X.shape
+    x = np.array([ft(X[i]) for i in range(N)])
+    x = np.array([ft(x[:,i]) for i in range(M)]).T
+    return x
+
+def ift2d(X):
+    """2D Inverse Fourier Transform (FT)"""
+    N, M = X.shape
+    x = np.array([ift(X[i]) for i in range(N)])
+    x = np.array([ift(x[:,i]) for i in range(M)]).T
+    return x
+
 def fft2d(X):
     """2D Fast Fourier Transform (FFT)"""
     N, M = X.shape
